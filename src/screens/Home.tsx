@@ -6,6 +6,7 @@ import {
   useTheme,
   Text,
   Heading,
+  FlatList
 } from "native-base";
 import { SignOut } from "phosphor-react-native";
 
@@ -14,6 +15,13 @@ import Logo from "../assets/logo_secondary.svg";
 import { Filter } from "../components/Filter";
 
 export function Home() {
+  const [statusSelected, setStatusSelected] = useState<'open' | 'closed'>('open')
+  const [orders, setOrders] = useState([{
+    id: '123',
+    patrimony: '123456',
+    when: '24/07/2022 at 14:00',
+    status: 'open'
+  }])
   const { colors } = useTheme();
 
   return (
@@ -48,14 +56,28 @@ export function Home() {
           </Text>
         </HStack>
 
-        <HStack space={3}>
+        <HStack space={3} mb={8}>
           <Filter 
           type="open" 
           title="processing" 
-          pr={2}/>
+          onPress={() => setStatusSelected('open')}
+          isActive={statusSelected === 'open'}
+          />
 
-          <Filter type="closed" title="finished" />
+          <Filter 
+          type="closed" 
+          title="finished" 
+          onPress={() => setStatusSelected('closed')}
+          isActive={statusSelected === 'closed'}
+          />
+
         </HStack>
+
+        <FlatList 
+          data={orders}
+          keyExtractor={item => item.id}
+          renderItem={({item}) => <Text color="white">{item.patrimony}</Text>}
+        />
       </VStack>
     </VStack>
   );
