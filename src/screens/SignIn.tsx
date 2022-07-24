@@ -23,7 +23,7 @@ export function SignIn() {
       <Logo />
 
       <Heading color="gray.100" fontSize="xl" mt={20} mb={6}>
-        Acesse a sua conta {name}
+        Access your account{name}
       </Heading>
 
       
@@ -35,14 +35,14 @@ export function SignIn() {
       />
       <Input 
       mb={8}
-      placeholder="Senha" 
+      placeholder="Password" 
       InputLeftElement={<Icon as={<Key color={colors.gray[300]} />} ml={4}/>}
       secureTextEntry
       onChangeText={setPassword}
       />
 
     
-    <Button title="Entrar" w="full" onPress={handleSignIn}/>
+    <Button title="Sign In" w="full" onPress={handleSignIn}/>
     </VStack>
   );
 }
