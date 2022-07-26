@@ -84,7 +84,7 @@ export function Home() {
               <ChatTeardropText color={colors.gray[300]} size={40}/>
               <Text color="gray.300" fontSize="xl" mt={6} textAlign="center">
                 You don't have any {'\n'}
-                requests {statusSelected === 'open' ? 'opened' : 'finished'}
+                requests {statusSelected === 'open' ? 'in process' : 'finished'}
               </Text>
             </Center>
           )}
