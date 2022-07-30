@@ -68,7 +68,7 @@ export function Home() {
             My requests
             </Heading>
           <Text color="gray.200">
-            5
+            {orders.length}
           </Text>
         </HStack>
 
